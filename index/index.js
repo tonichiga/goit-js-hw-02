@@ -141,31 +141,93 @@
 //console.log(mapArray([-2.5, 0, 2.5]));
 // [-25, 0, 25]
 
-// Задание 7
-function filterArray(array) {
+// Задача 7
+// Если число конечно то вывести результат
+// function filterArray(array) {
+//   "use strict";
+//   const numbers = [];
+//   for (let i = 0; i < array.length; i += 1) {
+//     Number.isFinite(array[i]);
+//     if (Number.isFinite(array[i]) === true) {
+//       let j = 0;
+//       j += array[i];
+//       numbers.push(j);
+//     }
+//   }
+//   return numbers;
+// }
+
+// console.log(filterArray([-2, 0, 2]));
+// // [-2, 0, 2]
+
+// console.log(filterArray([1, NaN, Infinity]));
+// // [1]
+
+// console.log(filterArray([0, -0, 100, "100"]));
+// // [0, 0, 100]
+
+// console.log(filterArray([undefined, false, null, [], 1]));
+// // [1]
+
+// console.log(filterArray([{}, () => {}, 2]));
+// [2]
+
+// Задание 8
+// function reduceArray(array) {
+//   "use strict";
+//   let total = 0;
+//   for (let i = 0; i < array.length; i += 1) {
+//     if (array[i] !== []) {
+//       total += array[i];
+//     }
+//   }
+//   return total;
+// }
+
+// console.log(reduceArray([1, 2, 3]));
+// // 6
+
+// console.log(reduceArray([-2, 0, 2]));
+// // 0
+
+// console.log(reduceArray([1, 2, 2.5]));
+// // 5.5
+
+// Задание 9
+const addLogins = ["Zod", "Ajax", "jqueryisextremelyfast", "robotGoogles"];
+const logins = ["Mango", "robotGoogles", "Poly", "Aj4x1sBozz", "qwerty123"];
+function addLogin(allLogins, login) {
   "use strict";
-  let numbers = [];
-  for (let i = 0; i < array.length; i += 1) {
-    numbers = array.map(function (array) {
-      if (array === Number) {
-        return array;
+  const SUCCESS = "Логин успешно добавлен!";
+  const REFUSAL = "Такой логин уже используется!";
+  const ERROR = "Ошибка! Логин должен быть размером от 4 до 16 символов";
+  let message;
+
+  function isLoginValid(login, min = 4, max = 16) {
+    let loginsValid;
+
+    for (let i = 0; i < addLogins.length; i += 1) {
+      // console.log(addLogins.length);
+      for (let j = 0; j < addLogins.length; j += 1) {
+        console.log(addLogins[j]);
+        // if ((loginsValid = login.length >= min && login.length <= max)) {
+        // }
       }
-    });
+    }
+    return loginsValid;
+    function isLoginUnique(allLogins, login) {}
   }
-  return numbers;
+  console.log(isLoginValid("Zod"));
 }
 
-console.log(filterArray([-2, 0, 2]));
-// [-2, 0, 2]
+// console.log(addLogin(logins, 'Ajax'));
+// 'Логин успешно добавлен!'
 
-//console.log(filterArray([1, NaN, Infinity]));
-// [1]
+// console.log(addLogin(logins, 'robotGoogles'));
+// 'Такой логин уже используется!'
 
-//console.log(filterArray([0, -0, 100, '100']));
-// [0, 0, 100]
+console.log(addLogin(logins, "Zod"));
+// 'Ошибка! Логин должен быть от 4 до 16 символов'
 
-//console.log(filterArray([undefined, false, null, [], 1]));
-// [1]
-
-//console.log(filterArray([{}, () => {}, 2]));
-// [2]
+// console.log(addLogin(logins, 'jqueryisextremelyfast'));
+// 'Ошибка! Логин должен быть от 4 до 16 символов'
