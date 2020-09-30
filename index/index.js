@@ -195,43 +195,51 @@
 
 // Задание 9
 const logins = ["Mango", "robotGoogles", "Poly", "Aj4x1sBozz", "qwerty123"];
+let loginUnique;
+let loginsValid;
+
+// Проверка по колличеству символов
+function isLoginValid(login, min = 4, max = 16) {
+  for (let i = 0; i < login.length; i += 1) {
+    if ((loginsValid = login.length >= min && login.length <= max)) {
+      loginsValid = true;
+    } else {
+      loginsValid = false;
+    }
+  }
+  return loginsValid;
+}
+
+// Проверка на совпадения
+function isLoginUnique(allLogins, login) {
+  for (let i = 0; i < allLogins.length; i += 1) {
+    if (allLogins[i] === login) {
+      loginUnique = false;
+      break;
+    } else {
+      loginUnique = true;
+    }
+  }
+  return loginUnique;
+}
 function addLogin(allLogins, login) {
   ("use strict");
   const SUCCESS = "Логин успешно добавлен!";
   const REFUSAL = "Такой логин уже используется!";
   const ERROR = "Ошибка! Логин должен быть размером от 4 до 16 символов";
   let message;
-  let loginUnique;
-  let loginsValid;
-  function isLoginValid(login, min = 4, max = 16) {
-    for (let i = 0; i < login.length; i += 1) {
-      if ((loginsValid = login.length >= min && login.length <= max)) {
-      }
-    }
-    // console.log(loginsValid);
 
-    function isLoginUnique(allLogins, login) {
-      for (let i = 0; i < allLogins.length; i += 1) {
-        if (allLogins[i] === login) {
-          loginUnique = true;
-          break;
-        } else {
-          loginUnique = false;
-        }
-      }
-    }
-    isLoginUnique(allLogins, login);
-  }
-  isLoginValid(login);
-  console.log(loginUnique);
+  console.log(isLoginUnique(allLogins, login));
+  console.log(isLoginValid(login));
+
   if (loginsValid === false) {
     return ERROR;
-  } else if ((loginUnique = false)) {
+  } else if (loginUnique === false) {
     return REFUSAL;
+  } else {
+    allLogins.push(login);
+    return SUCCESS;
   }
-  allLogins.push(login);
-  console.log(logins);
-  return SUCCESS;
 }
 
 console.log(addLogin(logins, "Ajax"));
