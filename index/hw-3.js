@@ -328,3 +328,132 @@ mood : happy
 
 // console.log(calculateTotalPrice(products, "Дроид"));
 // 2800
+
+// Просто пример сложения всем цифр в числе
+// function getSum(number) {
+//   const x = number;
+//   const text = String(x);
+
+//   let sum = 0;
+//   for (let i = 0; i < text.length; i += 1) {
+//     const num = Number(text[i]);
+
+//     sum += num;
+//   }
+//   return sum;
+// }
+// console.log(getSum(1234567));
+
+// Задание 7 Дополнительное
+/*
+ * Типов транзацкий всего два.
+ * Можно положить либо снять деньги со счета.
+ */
+const Transaction = {
+  DEPOSIT: "deposit",
+  WITHDRAW: "withdraw",
+};
+
+/*
+ * Каждая транзакция это объект со свойствами: id, type и amount
+ */
+
+const account = {
+  // Текущий баланс счета
+  balance: 0,
+
+  // История транзакций
+  transactions: [],
+  lengthId: [],
+
+  /*
+   * Метод создает и возвращает объект транзакции.
+   * Принимает сумму и тип транзакции.
+   */
+  createTransaction(amount, type) {
+    if (type === Transaction.DEPOSIT) {
+      this.transactions.push({ id: this.lengthId.length, type, amount });
+    } else if (type === Transaction.WITHDRAW) {
+      this.transactions.push({ id: this.lengthId.length, type, amount });
+    }
+    // console.log(this.transactions);
+  },
+
+  /*
+   * Метод отвечающий за добавление суммы к балансу.
+   * Принимает сумму танзакции.
+   * Вызывает createTransaction для создания объекта транзакции
+   * после чего добавляет его в историю транзакций
+   */
+  deposit(amount) {
+    this.balance += amount;
+    this.lengthId.push(1);
+    this.createTransaction(amount, Transaction.DEPOSIT);
+    return `Средства успешно пополнены!`;
+  },
+
+  /*
+   * Метод отвечающий за снятие суммы с баланса.
+   * Принимает сумму танзакции.
+   * Вызывает createTransaction для создания объекта транзакции
+   * после чего добавляет его в историю транзакций.
+   *
+   * Если amount больше чем текущий баланс, выводи сообщение
+   * о том, что снятие такой суммы не возможно, недостаточно средств.
+   */
+  withdraw(amount) {
+    if (this.balance - amount < 0) {
+      return `На счету недостаточно средства, баланс ${this.balance} кредитов.`;
+    }
+    this.lengthId.push(2);
+
+    this.balance -= amount;
+    this.createTransaction(amount, Transaction.WITHDRAW);
+    return `Средства успешно выведены!`;
+  },
+
+  /*
+   * Метод возвращает текущий баланс
+   */
+  getBalance() {
+    return `На вашем счету ${this.balance} кредитов.`;
+  },
+
+  /*
+   * Метод ищет и возвращает объект транзации по id
+   */
+  getTransactionDetails(id) {
+    for (let i = 0; i < this.transactions.length; i += 1) {
+      if (this.transactions[i].id === id) {
+        return this.transactions[i];
+      }
+    }
+  },
+
+  /*
+   * Метод возвращает количество средств
+   * определенного типа транзакции из всей истории транзакций
+   */
+  getTransactionTotal(type) {
+    let totalTransactions = [];
+    for (let i = 0; i < this.transactions.length; i += 1) {
+      if (this.transactions[i].type === type) {
+        totalTransactions.push(this.transactions[i]);
+      }
+    }
+    return totalTransactions;
+  },
+};
+
+account.deposit(150);
+account.withdraw(100);
+account.withdraw(100);
+account.deposit(250);
+account.withdraw(250);
+account.deposit(350);
+account.deposit(50);
+account.deposit(100);
+// console.log(account.getBalance());
+// console.log(account);
+// console.log(account.getTransactionDetails(3));
+console.log(account.getTransactionTotal(Transaction.WITHDRAW));
