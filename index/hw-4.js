@@ -124,3 +124,88 @@
 
 // console.log(reduceArray(arr, sub)); // -13
 // console.log(reduceArray(arr, sub, 10)); // -5
+
+
+// Залача 4
+
+// const account = {
+//   owner: 'Mango',
+//   balance: 24000,
+//   discount: 0.1,
+//   orders: ['order-1', 'order-2', 'order-3'],
+//   changeDiscount(value) {
+//     this.discount = value; // Write code in this line
+//   },
+//   showOrders() {
+//     return this.orders; // Write code in this line
+//   },
+//   addOrder(cost, order) {
+//     this.balance -= cost; // Write code in this line
+//     this.orders.push(order); // Write code in this line
+//   },
+// };
+// const copyAccount =  Object.assign({},account);
+// copyAccount.orders = [...account.orders];
+// // копируем для автотестов ссылочные типы
+
+
+// account.changeDiscount(0.15);
+// console.log(account.discount); // 0.15
+
+// console.log(account.showOrders()); 
+// // ['order-1', 'order-2', 'order-3']
+
+// account.addOrder(5000, 'order-4');
+// console.log(account.balance); // 19000
+
+// console.log(account.showOrders());
+// // ['order-1', 'order-2', 'order-3', 'order-4']
+
+
+// Задача 5
+
+// const inventory = {
+//   items: ['Knife', 'Gas mask'],
+//   add(itemName) {
+//     this.items.push(itemName);
+//     return `Adding ${itemName} to inventory`;
+//   },
+//   remove(itemName) {
+//     this.items = this.items.filter(item => item !== itemName);
+//     return `Removing ${itemName} from inventory`;
+//   },
+// };
+
+// const invokeInventoryAction = function(itemName, action) {
+//   const act =  action(itemName);
+//   const msg =  `Invoking action on ${itemName}`;
+//   return {act, msg};
+// };
+
+// const invokeAdd = invokeInventoryAction(
+//   'Medkit',
+//   inventory.add.bind(inventory)  // Write code in this line
+// );
+// const arrayAdd = [...inventory.items];
+ 
+// console.log(invokeAdd);
+// //{ act: 'Adding Medkit to inventory', msg: 'Invoking action on Medkit' }
+
+// console.log(arrayAdd);
+// // ['Knife', 'Gas mask', 'Medkit']
+
+
+// const invokeRemove = invokeInventoryAction(
+//   'Gas mask',
+//   inventory.remove.bind(inventory)  // Write code in this line
+// );
+
+// const arrayRemove = [...inventory.items];
+
+ 
+// console.log(invokeRemove);
+// //{ act: 'Removing Gas mask from inventory', msg: 'Invoking action on Gas mask' }
+
+// console.log(arrayRemove);
+// // ['Knife', 'Medkit']
+
