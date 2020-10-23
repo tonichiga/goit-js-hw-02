@@ -278,7 +278,7 @@ mood : happy
 // //[4, 2, 1, 1, 3, 7, 2];
 
 // console.log(getAllPropValues(products, "category"));
-//[];
+// [];
 
 // Задача 6
 // Посчитать сумму определенных товаро в корзине.

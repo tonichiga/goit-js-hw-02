@@ -11,9 +11,9 @@
 
 // // Write code under this line
 // const subIndex = (element, index) => element - index;
-  
+
 // function mapArray(array, cb) {
-  
+
 //     const numbers = new Array(array.length);
 //     console.log(numbers)
 // // Write code under this line
@@ -109,7 +109,7 @@
 //     const element = array[i];
 //     // Write code under this line
 //     accum = cb(accum, element);
-    
+
 //   }
 //   return accum;
 // }
@@ -187,7 +187,7 @@
 //   inventory.add.bind(inventory)  // Write code in this line
 // );
 // const arrayAdd = [...inventory.items];
- 
+
 // console.log(invokeAdd);
 // //{ act: 'Adding Medkit to inventory', msg: 'Invoking action on Medkit' }
 
@@ -202,10 +202,49 @@
 
 // const arrayRemove = [...inventory.items];
 
- 
+
 // console.log(invokeRemove);
 // //{ act: 'Removing Gas mask from inventory', msg: 'Invoking action on Gas mask' }
 
 // console.log(arrayRemove);
 // // ['Knife', 'Medkit']
+
+// Треноровка
+
+// const inventory = {
+//   items: ['Knife', 'Gas mask'],
+//   add(itemName) {
+//     console.log(`Adding ${itemName} to inventory`);
+
+//     this.items.push(itemName);
+//   },
+//   remove(itemName) {
+//     console.log(`Removing ${itemName} from inventory`);
+
+//     this.items = this.items.filter(item => item !== itemName);
+//   },
+// };
+
+  // const invokeInventoryAction = function(itemName, action) {
+//   console.log(`Invoking action on ${itemName}`);
+//   action(itemName);
+// };
+
+// invokeInventoryAction('Medkit', inventory.add.bind(inventory));
+// // Invoking action on Medkit
+// // Adding Medkit to inventory
+
+// console.log(inventory.items); // ['Knife', 'Gas mask', 'Medkit']
+
+// invokeInventoryAction('Gas mask', inventory.remove.bind(inventory));
+// // Invoking action on Gas mask
+// // Removing Gas mask from inventory
+
+// console.log(inventory.items); // ['Knife', 'Medkit']
+
+
+
+
+
+
 
