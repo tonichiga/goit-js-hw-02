@@ -179,7 +179,7 @@ mood : happy
 //         console.log(i);
 
 //         // Удаляем (в нашем случае i = 0, 0-ой индекс, 1 ед. удалить)
-//         this.items.splice(i, 1);
+//         this.itфems.splice(i, 1);
 //       }
 //     }
 //   },

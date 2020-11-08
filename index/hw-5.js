@@ -215,7 +215,22 @@
 class Car {
     // Write code under this line
     static getSpecs(obj) {
-       return `maxSpeed: ${obj.maxSpeed}, speed: ${obj.speed}, isOn: ${obj.isOn}, distance: ${obj.distance}, price: ${obj.price}`
+        let result = [];
+        const arrayValue = Object.values(obj);
+        const arrayKeys = Object.keys(obj);
+
+        console.log('работает')
+
+        for (let i = 0; i < arrayValue.length; i += 1) {
+            console.log("не работает")
+            }
+           
+        console.log(result)
+        
+        // return `maxSpeed: ${obj.maxSpeed}, speed: ${obj.speed}, isOn: ${obj.isOn}, distance: ${obj.distance}, price: ${obj.price}`
+    }
+    static getAllValues() {
+
     }
     constructor(objValue) {
         this.distance = 0;
