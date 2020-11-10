@@ -1,22 +1,27 @@
 
 
-    const variant = {
+//     const variant = {
   
-        str : 'Привет',
-        num : 123,
-        flag : true,
-        txt: 'true',
+//         str : 'Привет',
+//         num : 123,
+//         flag : true,
+//         txt: 'true',
  
-        define(string) {
+//         define(string) {
             
-            return (this)
+//             return (this)
  
-        }
-    }
-const findTypeof = variant.define.bind(variant)
+//         }
+//     }
+// const findTypeof = variant.define.bind(variant)
 
 
-const defineItem = function (findTypeof) {
-    return findTypeof("s",this)
-}
-console.log(defineItem(findTypeof))
+// const defineItem = function (findTypeof) {
+//     return findTypeof("s",this)
+// }
+// console.log(defineItem(findTypeof))
+
+let myName = "My name is ";
+let myStr = "Bobby"
+
+console.log(myName += myStr)
